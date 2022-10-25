@@ -37,10 +37,17 @@ public class OrderService {
 		Order order = new Order(null, orderDTO.getAddress(), orderDTO.getLatitude(), 
 				      orderDTO.getLongitude(), Instant.now(), OrderStatus.PENDENTE);
 		for(ProductDTO productDTO : orderDTO.getProducts()) {
-			Product product = productRepository.findById(productDTO.getId()).get();
+			Product product = productRepository.getOne(productDTO.getId());
 			order.getProducts().add(product);
 		}
 		order = orderRepository.save(order);
+		return new OrderDTO(order);
+	}
+	
+	@Transactional 
+	public OrderDTO setDelivered(Long id) {
+		Order order = orderRepository.getOne(id);
+		order.setStatus(OrderStatus.ENTREGUE);
 		return new OrderDTO(order);
 	}
 
