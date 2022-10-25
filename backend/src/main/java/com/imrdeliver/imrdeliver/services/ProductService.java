@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.imrdeliver.imrdeliver.ProductDTO;
+import com.imrdeliver.imrdeliver.dto.ProductDTO;
 import com.imrdeliver.imrdeliver.entities.Product;
 import com.imrdeliver.imrdeliver.repositories.ProductRepository;
 
@@ -21,7 +21,7 @@ public class ProductService {
 	
 	@Transactional(readOnly = true)
 	public List<ProductDTO> findAll(){
-		List<Product> products = productRepository.findAllByOrderByNameASC();
+		List<Product> products = productRepository.findAllByOrderByNameAsc();
 		return products.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
 	}
 

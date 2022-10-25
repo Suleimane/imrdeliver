@@ -1,4 +1,4 @@
-package com.imrdeliver.imrdeliver;
+package com.imrdeliver.imrdeliver.dto;
 
 import java.io.Serializable;
 
