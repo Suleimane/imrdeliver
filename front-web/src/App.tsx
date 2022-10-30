@@ -1,12 +1,14 @@
 import './App.css';
-import Home from './Home';
+import Footer from './Footer';
 import Navbar from './Navbar';
+import Orders from './Orders';
 
 function App() {
   return (
     <>
       <Navbar />
-      <Home />
+      <Orders />
+      <Footer />
     </>
   );
 }

@@ -6,7 +6,7 @@ function Navbar(){
     return(
         <nav className="main-navbar">
            <Logo />
-           <a href="home" className="logo-text">IMR Delivery</a>
+           <a href="/" className="logo-text">IMR Delivery</a>
         </nav>
     );
 }
